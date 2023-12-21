@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "308876570155",
+    "project_id": "emart-544b1",
+    "storage_bucket": "emart-544b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:308876570155:android:cf75d1438289c448df046e",
+        "android_client_info": {
+          "package_name": "com.thamanna.ecommerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmWHixNke7GP31P8-FO_7DKruA71dQ-wM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
