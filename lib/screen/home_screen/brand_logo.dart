@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class Brand extends StatelessWidget {
     return Scaffold(
         body: SingleChildScrollView(
           child: Container(
-            decoration: BoxDecoration(color: Colors.teal.shade100),
+            decoration: BoxDecoration(color:tealShade100),
             child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,

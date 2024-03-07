@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/screen/category_screen/item_details.dart';
 import 'package:ecommerce_app/services/firebase_services.dart';
@@ -46,11 +47,11 @@ class Product extends StatelessWidget {
                       ),
                       const SizedBox(height: 10,),
                       Text("${allProductsdata[index]['p_name']}", style: const TextStyle(
-                        color: Colors.black87, fontWeight: FontWeight.bold,),
+                        color:black87Color, fontWeight: FontWeight.bold,),
                         textAlign: TextAlign.center,),
                       const SizedBox(height: 6,),
                       Text(' \₹' + "${allProductsdata[index]['p_price']}", style: TextStyle(
-                          color: Colors.teal.shade400,
+                          color: tealShade400,
                           fontWeight: FontWeight.bold),),
                     ],
                   ),

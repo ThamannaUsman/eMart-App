@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:flutter/material.dart';
 

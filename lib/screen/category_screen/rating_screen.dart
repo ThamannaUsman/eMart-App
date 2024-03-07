@@ -1,27 +1,6 @@
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-// class RatingScreen extends StatelessWidget {
-//   final String value;
-//
-//   const RatingScreen({super.key, required this.value});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return RatingBar.builder(
-//       itemBuilder: (context, index) {
-//         return Icon(
-//           Icons.star,
-//           color: Colors.amber.shade600,
-//         );
-//       },
-//       onRatingUpdate: (value) {},
-//       itemCount: 5,
-//       itemSize: 25,
-//       maxRating: 5,
-//     );
-//   }
-// }
 
 class RatingBarScreen extends StatelessWidget {
   final int rating;
@@ -39,7 +18,7 @@ class RatingBarScreen extends StatelessWidget {
       if (i < realNumber) {
         starList.add(Icon(
           Icons.star,
-          color: Colors.amber.shade600,
+          color: amberShade600,
           size: size,
         ));
       } else if (i == realNumber) {
@@ -51,14 +30,14 @@ class RatingBarScreen extends StatelessWidget {
             children: [
               Icon(
                 Icons.star,
-                color: Colors.amber.shade600,
+                color: amberShade600,
                 size: size,
               ),
               ClipRect(
                 clipper: Clipper(part: partNumber),
                 child: Icon(
                   Icons.star,
-                  color: Colors.white,
+                  color: whiteColor,
                   size: size,
                 ),
               )
@@ -68,7 +47,7 @@ class RatingBarScreen extends StatelessWidget {
       } else {
         starList.add(Icon(
           Icons.star,
-          color: Colors.white,
+          color: whiteColor,
           size: size,
         ));
       }

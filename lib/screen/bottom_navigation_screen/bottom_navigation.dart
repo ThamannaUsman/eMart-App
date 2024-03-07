@@ -1,9 +1,8 @@
-import 'package:ecommerce_app/const_final/const.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/screen/account_screen/account_screen.dart';
 import 'package:ecommerce_app/screen/cart_screen/cart_screen.dart';
 import 'package:ecommerce_app/screen/category_screen/category_screen.dart';
 import 'package:ecommerce_app/screen/home_screen/home_screen.dart';
-import 'package:ecommerce_app/screen/sell_screen/screen_product.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigation extends StatefulWidget {
@@ -25,8 +24,8 @@ class _BottomNavigationState extends State<BottomNavigation> {
           icon: Icon(Icons.category_outlined), label: "Categories"),
       const BottomNavigationBarItem(
           icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
-      const BottomNavigationBarItem(
-          icon: Icon(Icons.sell_outlined), label: "Sell"),
+      // const BottomNavigationBarItem(
+      //     icon: Icon(Icons.sell_outlined), label: "Admin Panel"),
       const BottomNavigationBarItem(
           icon: Icon(Icons.account_box_outlined), label: "Account"),
 
@@ -35,7 +34,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
       const HomeScreen(),
       const CategoryScreen(),
       const CartScreen(),
-      const ScreenProduct(),
+      // const ScreenProduct(),
       const AccountScreen(),
     ];
 
@@ -44,9 +43,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
         currentIndex: indexNum,
         type: BottomNavigationBarType.fixed,
         selectedItemColor: whiteColor,
-        unselectedItemColor: Colors.black87,
+        unselectedItemColor: black87Color,
         selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w400),
-        backgroundColor: Colors.teal.shade600,
+        backgroundColor: tealShade600,
         items: navbarItems,
         onTap: (int index) {
           setState(() {

@@ -1,10 +1,10 @@
-import 'package:ecommerce_app/const_final/const.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/controller/home_controller.dart';
-import 'package:ecommerce_app/screen/home_screen/brandAds.dart';
+import 'package:ecommerce_app/screen/home_screen/brandAds1.dart';
 import 'package:ecommerce_app/screen/home_screen/brandads2.dart';
 import 'package:ecommerce_app/screen/home_screen/brandads3.dart';
 import 'package:ecommerce_app/screen/home_screen/feature_product.dart';
-import 'package:ecommerce_app/screen/home_screen/homeButton.dart';
+import 'package:ecommerce_app/screen/home_screen/homeButton1.dart';
 import 'package:ecommerce_app/screen/home_screen/homeButton2.dart';
 import 'package:ecommerce_app/screen/home_screen/product.dart';
 import 'package:ecommerce_app/screen/home_screen/search_screen.dart';
@@ -21,14 +21,14 @@ class HomeScreen extends StatelessWidget {
     final screenSize = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.all(12),
-      color: Colors.grey.shade200,
+      color: greyShade200,
       width: screenSize.width,
       height: screenSize.height,
       child: SafeArea(
         child: Column(
           children: [
             Container(
-                color: Colors.grey,
+                color: greyColor,
                 child: TextFormField(
                   controller: homeController.searchController,
                   decoration: InputDecoration(
@@ -40,17 +40,17 @@ class HomeScreen extends StatelessWidget {
                       }
                     }, icon:  Icon(
                       Icons.search,
-                      color: Colors.teal.shade600,
+                      color: tealShade600,
                     ),),
                     filled: true,
                     fillColor: whiteColor,
                     hintText: "Search anything...",
                     hintStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey.shade400),
+                        color: greyShade400),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: Colors.teal.shade600, width: 2),
+                          BorderSide(color: tealShade600, width: 2),
                     ),
                   ),
                 )),
@@ -62,11 +62,11 @@ class HomeScreen extends StatelessWidget {
                 physics: BouncingScrollPhysics(),
                 child: Column(
                   children: [
-                    BrandAdWidget(),
+                    BrandAdWidget1(),
                     SizedBox(
                       height: 8,
                     ),
-                    HomeButton(),
+                    HomeButton1(),
                     SizedBox(
                       height: 10,
                     ),

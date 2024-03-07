@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/controller/product_controller.dart';
 import 'package:ecommerce_app/screen/category_screen/rating_screen.dart';
@@ -24,7 +25,7 @@ class ItemDetails extends StatelessWidget {
     LoadingIndicator loading = LoadingIndicator();
 
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: greyShade300,
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
@@ -56,7 +57,7 @@ class ItemDetails extends StatelessWidget {
               },
               icon: Icon(
                 Icons.favorite_outlined,
-                color: productController.isFav ? Colors.red : Colors.grey,
+                color: productController.isFav ? redColor : greyColor,
               )),
         ],
       ),
@@ -87,29 +88,16 @@ class ItemDetails extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-
-                  // Row(
-                  //   children: [
-                  //     Text("${data['p_category']}",style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.black),),
-                  //     Text(" ${data['p_subcategory']}",style: const TextStyle(color: Colors.black),),
-                  //   ],
-                  // ),
-                  // const SizedBox(
-                  //   height: 10,
-                  // ),
-                  //  RatingScreen(
-                  //   value: data['p_rating'],
-                  // ),
-                RatingBarScreen(rating: data['p_rating']),
+                  RatingBarScreen(rating: data['p_rating']),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
-                    '\₹'+"${data['p_price']}",
+                    '\₹' + "${data['p_price']}",
                     style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: Colors.teal.shade300),
+                        color: tealShade300),
                   ),
                   const SizedBox(
                     height: 10,
@@ -118,7 +106,7 @@ class ItemDetails extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.grey.shade400,
+                          color: greyShade400,
                           borderRadius: BorderRadius.circular(10)),
                       height: 60,
                       child: Row(
@@ -140,7 +128,7 @@ class ItemDetails extends StatelessWidget {
                                 style: const TextStyle(
                                     fontSize: 17,
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black87),
+                                    color: black87Color),
                               ),
                             ],
                           )),
@@ -167,7 +155,7 @@ class ItemDetails extends StatelessWidget {
                                     style: TextStyle(
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.grey.shade300),
+                                        color: greyShade300),
                                   ),
                                 ),
                                 Row(
@@ -232,7 +220,7 @@ class ItemDetails extends StatelessWidget {
                                     style: TextStyle(
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.grey.shade300),
+                                        color: greyShade300),
                                   ),
                                 ),
                                 Row(
@@ -245,14 +233,14 @@ class ItemDetails extends StatelessWidget {
                                         },
                                         icon: const Icon(
                                           Icons.remove,
-                                          color: Colors.black87,
+                                          color: black87Color,
                                         )),
                                     Text(
                                       "${productController.quantity}",
                                       style: const TextStyle(
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.black87),
+                                          color: black87Color),
                                     ),
                                     IconButton(
                                         onPressed: () {
@@ -263,14 +251,14 @@ class ItemDetails extends StatelessWidget {
                                         },
                                         icon: const Icon(
                                           Icons.add,
-                                          color: Colors.black87,
+                                          color: black87Color,
                                         )),
                                     Text(
                                       "(${data['p_quantity']} available)",
                                       style: TextStyle(
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.grey.shade300),
+                                          color: greyShade300),
                                     ),
                                   ],
                                 ),
@@ -300,7 +288,7 @@ class ItemDetails extends StatelessWidget {
                                     style: TextStyle(
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.grey.shade300),
+                                        color: greyShade300),
                                   ),
                                 ),
                                 Text(
@@ -308,7 +296,7 @@ class ItemDetails extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 17,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.teal.shade600),
+                                      color: tealShade600),
                                 ),
                               ],
                             ),
@@ -325,7 +313,7 @@ class ItemDetails extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black87),
+                        color: black87Color),
                   ),
                   const SizedBox(
                     height: 10,
@@ -335,9 +323,8 @@ class ItemDetails extends StatelessWidget {
                     style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black54),
+                        color: black54Color),
                   ),
-
                   const SizedBox(
                     height: 10,
                   ),
@@ -346,66 +333,95 @@ class ItemDetails extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                        color: blackColor),
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   SingleChildScrollView(
-                    scrollDirection:Axis.horizontal ,
+                    scrollDirection: Axis.horizontal,
                     child: FutureBuilder(
                         future: FirebaseServices.getFeaturedProducts(),
-                        builder: (context,AsyncSnapshot<QuerySnapshot> snapshot) {
+                        builder:
+                            (context, AsyncSnapshot<QuerySnapshot> snapshot) {
                           if (!snapshot.hasData) {
-                            return Center(child: loading.loadingIndicator(),);
-                          } else if (snapshot.data!.docs.isEmpty) {
-                            return const Center(child: Text("No featured products",
-                                style: TextStyle(color: Colors.white,)));
-                          } else {
-                            var featuredProductsData=snapshot.data!.docs;
-                            return Row(
-                                children: List.generate(featuredProductsData.length, (index) =>
-                                    GestureDetector(
-                                      onTap: (){
-                                        Navigator.push(context,   MaterialPageRoute(builder: (context) {
-                                          return ItemDetails(title:"${featuredProductsData[index]['p_name']}" ,data: featuredProductsData[index],);
-                                        },));
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(5.0),
-                                        child: Container(
-                                          color: whiteColor,
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: Image.network(
-                                                  featuredProductsData[index]['p_imgs'], width: 150,
-                                                  height: 150,
-                                                ),
-                                              ),
-                                              const SizedBox(height: 10,),
-                                              Text(" ${featuredProductsData[index]['p_name']}",
-                                                style: const TextStyle(
-                                                  color: Colors.black87,
-                                                  fontWeight: FontWeight.bold,),
-                                                textAlign: TextAlign.center,),
-                                              const SizedBox(height: 6,),
-                                              Text(' \₹' + "${featuredProductsData[index]['p_price']}",
-                                                style: TextStyle(
-                                                    color: Colors.teal.shade400,
-                                                    fontWeight: FontWeight.bold),),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ))
-
+                            return Center(
+                              child: loading.loadingIndicator(),
                             );
+                          } else if (snapshot.data!.docs.isEmpty) {
+                            return const Center(
+                                child: Text("No featured products",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                    )));
+                          } else {
+                            var featuredProductsData = snapshot.data!.docs;
+                            return Row(
+                                children: List.generate(
+                                    featuredProductsData.length,
+                                    (index) => GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(context,
+                                                MaterialPageRoute(
+                                              builder: (context) {
+                                                return ItemDetails(
+                                                  title:
+                                                      "${featuredProductsData[index]['p_name']}",
+                                                  data: featuredProductsData[
+                                                      index],
+                                                );
+                                              },
+                                            ));
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(5.0),
+                                            child: Container(
+                                              color: whiteColor,
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Image.network(
+                                                      featuredProductsData[
+                                                          index]['p_imgs'],
+                                                      width: 150,
+                                                      height: 150,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  Text(
+                                                    " ${featuredProductsData[index]['p_name']}",
+                                                    style: const TextStyle(
+                                                      color: black87Color,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                    textAlign: TextAlign.center,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 6,
+                                                  ),
+                                                  Text(
+                                                    ' \₹' +
+                                                        "${featuredProductsData[index]['p_price']}",
+                                                    style: TextStyle(
+                                                        color: tealShade400,
+                                                        fontWeight:
+                                                            FontWeight.bold),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        )));
                           }
-                        }
-                    ),
+                        }),
                   )
                 ],
               ),
@@ -418,30 +434,31 @@ class ItemDetails extends StatelessWidget {
               height: 40,
               child: ElevatedButton(
                   style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.teal.shade500),
-                  shape: MaterialStateProperty.all(const RoundedRectangleBorder())),
+                      backgroundColor: MaterialStateProperty.all(tealShade500),
+                      shape: MaterialStateProperty.all(
+                          const RoundedRectangleBorder())),
                   onPressed: () {
-                   if(productController.quantity > 0){
-                     productController.addToCart(
-                         color: data['p_colors'][productController.colorIndex],
-                         context: context,
-                         img: data['p_imgs'],
-                         qty: productController.quantity,
-                         vendorId: data['vendor_id'],
-                         sellername: data['p_seller'],
-                         title: data['p_name'],
-                         tprice: productController.totalPrice);
-                     Utils()
-                         .showSnackBar(context: context, content: "Added to Cart");
-                   }else{
-                     Utils()
-                         .showSnackBar(context: context, content: "Minimum 1 product is required");
-                   }
+                    if (productController.quantity > 0) {
+                      productController.addToCart(
+                          color: data['p_colors'][productController.colorIndex],
+                          context: context,
+                          img: data['p_imgs'],
+                          qty: productController.quantity,
+                          vendorId: data['vendor_id'],
+                          sellername: data['p_seller'],
+                          title: data['p_name'],
+                          tprice: productController.totalPrice);
+                      Utils().showSnackBar(
+                          context: context, content: "Added to Cart");
+                    } else {
+                      Utils().showSnackBar(
+                          context: context,
+                          content: "Minimum 1 product is required");
+                    }
                   },
                   child: const Text(
                     "Add To Cart",
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: whiteColor),
                   )),
             ),
           )
@@ -450,5 +467,3 @@ class ItemDetails extends StatelessWidget {
     );
   }
 }
-
-

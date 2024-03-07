@@ -3,12 +3,13 @@ import 'package:ecommerce_app/const_final/firebase_const.dart';
 import 'package:ecommerce_app/utils/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 
 class AuthController extends ChangeNotifier {
+  var emailController=TextEditingController();
   Future<UserCredential?> loginIn({email, password, context}) async {
     UserCredential? userCredential;
-    // String output="something wrong went";
     try {
       userCredential = await auth.signInWithEmailAndPassword(
           email: email, password: password);
@@ -42,9 +43,6 @@ class AuthController extends ChangeNotifier {
       'email': email,
       'imageUrl': '',
       'id':currentUser!.uid,
-      'cart_count': '00',
-      'wishlist_count': '00',
-      'order_count': '00',
     });
   }
 
@@ -55,5 +53,25 @@ class AuthController extends ChangeNotifier {
     } on FirebaseAuthException catch (e) {
       Utils().showSnackBar(context: context, content: e.message.toString());
     }
+  }
+   passwordReset(context) async{
+    try{
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: emailController.text.trim());
+      Utils().showSnackBar(context: context, content: "Password reset link sent! Check your email");
+      notifyListeners();
+    }on FirebaseAuthException catch(e){
+      Utils().showSnackBar(context: context, content: e.message.toString());
+    }
+  }
+  Future<void> googleAuth() async {
+    final GoogleSignIn googleSignIn=GoogleSignIn();
+    final GoogleSignInAccount? googleUser=await googleSignIn.signIn();
+    final GoogleSignInAuthentication googleAuth=await googleUser!.authentication;
+    final AuthCredential credential=GoogleAuthProvider.credential(
+        accessToken: googleAuth.accessToken,
+        idToken: googleAuth.idToken
+    );
+    final UserCredential userCredential=await auth.signInWithCredential(credential);
+
   }
 }

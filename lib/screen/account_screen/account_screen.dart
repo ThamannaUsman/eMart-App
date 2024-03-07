@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/const_final/firebase_const.dart';
 import 'package:ecommerce_app/controller/auth_controller.dart';
-import 'package:ecommerce_app/controller/profile_controller.dart';
 import 'package:ecommerce_app/screen/account_screen/details_button.dart';
 import 'package:ecommerce_app/screen/account_screen/edit_profile_screen.dart';
 import 'package:ecommerce_app/screen/auth_screen/login_screen.dart';
@@ -25,11 +25,7 @@ class AccountScreen extends StatelessWidget {
       stream: FirebaseServices.getUser(currentUser!.uid),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (!snapshot.hasData) {
-          return const Center(
-            child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation(Colors.teal),
-            ),
-          );
+          return loading.loadingIndicator();
         } else {
           var data = snapshot.data!.docs[0];
           return SafeArea(
@@ -182,14 +178,14 @@ class AccountScreen extends StatelessWidget {
                             title: Text(
                               profileButtonList[index],
                               style: const TextStyle(
-                                  color: Colors.black87,
+                                  color: black87Color,
                                   fontWeight: FontWeight.bold),
                             ),
                           );
                         },
                         separatorBuilder: (context, index) {
                           return const Divider(
-                            color: Colors.grey,
+                            color: greyColor,
                           );
                         },
                         itemCount: profileButtonList.length),

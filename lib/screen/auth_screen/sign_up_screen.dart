@@ -1,5 +1,4 @@
-import 'package:ecommerce_app/const_final/const.dart';
-import 'package:ecommerce_app/const_final/firebase_const.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/controller/auth_controller.dart';
 import 'package:ecommerce_app/screen/auth_screen/login_screen.dart';
 import 'package:ecommerce_app/screen/bottom_navigation_screen/bottom_navigation.dart';
@@ -21,8 +20,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final confirmController = TextEditingController();
   bool obscureText = true;
   bool? isCheck = false;
-  Utils utils=Utils();
-  bool isLoading=false;
+  Utils utils = Utils();
+  bool isLoading = false;
+
   @override
   void dispose() {
     nameController.dispose();
@@ -34,7 +34,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final authController =Provider.of<AuthController>(context);
+    final authController = Provider.of<AuthController>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -44,11 +44,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(
-                height: 75,
-                child: Image.network(
-                  "https://imgs.search.brave.com/3wC_hOdTVk4JBzX2sOFtH2pSHAmfV8Pm622eWJae1YA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAxLzQxLzQwLzc2/LzM2MF9GXzE0MTQw/NzY4M19BbU91QnRJ/SDU5enZ5aTFUOXQw/WnFaYU15WUwwWUdG/WS5qcGc",
-                )),
+            const CircleAvatar(
+              radius: 45,
+              backgroundImage: AssetImage("assets/eMart.png"),
+            ),
             const SizedBox(
               height: 10,
             ),
@@ -68,14 +67,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     filled: true,
                     fillColor: whiteColor,
                     hintText: "Name",
-                    hintStyle: const TextStyle(color: Colors.black),
+                    hintStyle: const TextStyle(color: blackColor),
                     focusedBorder: OutlineInputBorder(
                         borderSide:
-                        const BorderSide(color: Colors.black, width: 2),
+                            const BorderSide(color: blackColor, width: 2),
                         borderRadius: BorderRadius.circular(6)),
                     border: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.white,
+                          color: whiteColor,
                         ),
                         borderRadius: BorderRadius.circular(6))),
               ),
@@ -91,14 +90,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     filled: true,
                     fillColor: whiteColor,
                     hintText: "E-Mail",
-                    hintStyle: const TextStyle(color: Colors.black),
+                    hintStyle: const TextStyle(color: blackColor),
                     focusedBorder: OutlineInputBorder(
                         borderSide:
-                        const BorderSide(color: Colors.black, width: 2),
+                            const BorderSide(color: blackColor, width: 2),
                         borderRadius: BorderRadius.circular(6)),
                     border: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.white,
+                          color: whiteColor,
                         ),
                         borderRadius: BorderRadius.circular(6))),
               ),
@@ -114,13 +113,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   filled: true,
                   fillColor: whiteColor,
                   hintText: "Password",
-                  hintStyle: const TextStyle(color: Colors.black),
+                  hintStyle: const TextStyle(color: blackColor),
                   focusedBorder: OutlineInputBorder(
-                      borderSide:
-                      const BorderSide(color: Colors.black, width: 2),
+                      borderSide: const BorderSide(color: blackColor, width: 2),
                       borderRadius: BorderRadius.circular(6)),
                   border: OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white),
+                    borderSide: const BorderSide(color: whiteColor),
                     borderRadius: BorderRadius.circular(6),
                   ),
                 ),
@@ -136,14 +134,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     filled: true,
                     fillColor: whiteColor,
                     hintText: "Confirm Password",
-                    hintStyle: const TextStyle(color: Colors.black),
+                    hintStyle: const TextStyle(color: blackColor),
                     focusedBorder: OutlineInputBorder(
                         borderSide:
-                        const BorderSide(color: Colors.black, width: 2),
+                            const BorderSide(color: blackColor, width: 2),
                         borderRadius: BorderRadius.circular(6)),
                     border: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.white,
+                          color: whiteColor,
                         ),
                         borderRadius: BorderRadius.circular(6))),
               ),
@@ -154,7 +152,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             Row(
               children: [
                 Checkbox(
-                    activeColor: Colors.teal.shade600,
+                    activeColor: tealShade600,
                     checkColor: Colors.white,
                     value: isCheck,
                     onChanged: (newValue) {
@@ -165,27 +163,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Expanded(
                   child: RichText(
                       text: TextSpan(children: [
-                        const TextSpan(
-                            text: "I agree to the",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.blueGrey)),
-                        TextSpan(
-                            text: " Terms and Condition",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.tealAccent.shade400)),
-                        const TextSpan(
-                            text: " & ",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.blueGrey)),
-                        TextSpan(
-                            text: "Privacy Policy",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.tealAccent.shade400)),
-                      ])),
+                    const TextSpan(
+                        text: "I agree to the",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: blueGreyColor)),
+                    TextSpan(
+                        text: " Terms and Condition",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: tealShade400)),
+                    const TextSpan(
+                        text: " & ",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: blueGreyColor)),
+                    TextSpan(
+                        text: "Privacy Policy",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: tealShade400)),
+                  ])),
                 ),
               ],
             ),
@@ -194,42 +188,50 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             SizedBox(
                 width: 300,
-                child:isLoading ? const CircularProgressIndicator(color: whiteColor,) : ElevatedButton(
-                    style: isCheck == true
-                        ? ButtonStyle(
-                        backgroundColor:
-                        MaterialStateProperty.all(Colors.teal.shade300))
-                        : ButtonStyle(
-                        backgroundColor:
-                        MaterialStateProperty.all(Colors.grey)),
-                    onPressed: () async {
-                      if (isCheck != false) {
-                        isLoading=true;
-                        try {
-                          await authController.signUp(
-                            context: context,
-                              email: emailController.text,
-                              password: passwordController.text).then((value) =>
-                              authController.storeUserData(
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                name: nameController.text
-                              )).then((value)  {
-                         utils.showSnackBar(context: context, content: "Logged in Successfully");
-                              Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const BottomNavigation()));
-                          });
-                        }catch(e){
-                          auth.signOut();
-                          utils.showSnackBar(context: context, content: "Logged out Successfully");
-                          isLoading=false;
-                        }
-                      }
-                    },
-                    child: const Text("Sign Up"))),
+                child: isLoading
+                    ? const CircularProgressIndicator(
+                        color: whiteColor,
+                      )
+                    : ElevatedButton(
+                        style: isCheck == true
+                            ? ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(tealShade300))
+                            : ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all(greyColor)),
+                        onPressed: () async {
+                          if (isCheck != false) {
+                            isLoading = true;
+                            try {
+                              await authController
+                                  .signUp(
+                                      context: context,
+                                      email: emailController.text,
+                                      password: passwordController.text)
+                                  .then((value) => authController.storeUserData(
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                      name: nameController.text))
+                                  .then((value) {
+                                utils.showSnackBar(
+                                    context: context,
+                                    content: "Logged in Successfully");
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const BottomNavigation()));
+                              });
+                            } catch (e) {
+                              utils.showSnackBar(
+                                  context: context, content: "Error Occured");
+                              isLoading = false;
+                            }
+                          }
+                        },
+                        child: const Text("Sign Up",
+                            style: TextStyle(color: whiteColor)))),
             TextButton(
                 onPressed: () {
                   Navigator.pushReplacement(
@@ -244,7 +246,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     children: [
                       TextSpan(
                           text: "Login",
-                          style: TextStyle(color: Colors.greenAccent))
+                          style: TextStyle(color: greenAccentColor))
                     ])))
           ],
         ),

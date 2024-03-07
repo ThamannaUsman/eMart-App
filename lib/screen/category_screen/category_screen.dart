@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/controller/product_controller.dart';
 import 'package:ecommerce_app/screen/category_screen/category_details.dart';
@@ -14,7 +15,7 @@ class CategoryScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Colors.teal.shade600,
+          backgroundColor: tealShade600,
           title: const Text(
             "Categories",
             style: TextStyle(
@@ -25,7 +26,7 @@ class CategoryScreen extends StatelessWidget {
         ),
         body: Container(
             decoration: BoxDecoration(
-                color: Colors.grey.shade200),
+                color: greyShade200),
             child: GridView.builder(
               shrinkWrap: true,
               itemCount: 9,
@@ -52,7 +53,7 @@ class CategoryScreen extends StatelessWidget {
                             child: Image.network(product2[index],width: 150,height:150,),
                           ),
                           const SizedBox(height: 10,),
-                          Text(productName2[index],style: const TextStyle(color: Colors.black87,fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
+                          Text(productName2[index],style: const TextStyle(color: black87Color,fontWeight: FontWeight.bold,),textAlign: TextAlign.center,),
 
                         ],
                       ),

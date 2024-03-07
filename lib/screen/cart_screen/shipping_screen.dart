@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/const_final/const.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/controller/cart_controller.dart';
 import 'package:ecommerce_app/screen/cart_screen/payment_method.dart';
 import 'package:ecommerce_app/utils/utils.dart';
@@ -21,7 +21,7 @@ class ShippingDetails extends StatelessWidget {
               child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(Colors.teal.shade800),
+                        MaterialStateProperty.all(tealShade800),
                       shape: MaterialStateProperty.all(const RoundedRectangleBorder())
                   ),
                   onPressed: () {
@@ -40,11 +40,11 @@ class ShippingDetails extends StatelessWidget {
                   )),
             )),
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor: transparentColor,
           title: const Text(
             "Shopping Info",
             style:
-                TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
+                TextStyle(color: black87Color, fontWeight: FontWeight.bold),
           ),
         ),
         body: SingleChildScrollView(
@@ -58,14 +58,14 @@ class ShippingDetails extends StatelessWidget {
                       filled: true,
                       fillColor: whiteColor,
                       hintText: "Name",
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(color: blackColor),
                       focusedBorder: OutlineInputBorder(
                           borderSide:
-                          const BorderSide(color: Colors.black, width: 2),
+                          const BorderSide(color: blackColor, width: 2),
                           borderRadius: BorderRadius.circular(6)),
                       border: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.white,
+                            color: whiteColor,
                           ),
                           borderRadius: BorderRadius.circular(6))),
                 ),
@@ -81,14 +81,14 @@ class ShippingDetails extends StatelessWidget {
                       filled: true,
                       fillColor: whiteColor,
                       hintText: "Address",
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(color: blackColor),
                       focusedBorder: OutlineInputBorder(
                           borderSide:
-                              const BorderSide(color: Colors.black, width: 2),
+                              const BorderSide(color: blackColor, width: 2),
                           borderRadius: BorderRadius.circular(6)),
                       border: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.white,
+                            color: whiteColor,
                           ),
                           borderRadius: BorderRadius.circular(6))),
                 ),
@@ -104,14 +104,14 @@ class ShippingDetails extends StatelessWidget {
                       filled: true,
                       fillColor: whiteColor,
                       hintText: "City",
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(color: blackColor),
                       focusedBorder: OutlineInputBorder(
                           borderSide:
-                              const BorderSide(color: Colors.black, width: 2),
+                              const BorderSide(color: blackColor, width: 2),
                           borderRadius: BorderRadius.circular(6)),
                       border: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.white,
+                            color: whiteColor,
                           ),
                           borderRadius: BorderRadius.circular(6))),
                 ),
@@ -127,14 +127,14 @@ class ShippingDetails extends StatelessWidget {
                       filled: true,
                       fillColor: whiteColor,
                       hintText: "State",
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(color: blackColor),
                       focusedBorder: OutlineInputBorder(
                           borderSide:
-                              const BorderSide(color: Colors.black, width: 2),
+                              const BorderSide(color: blackColor, width: 2),
                           borderRadius: BorderRadius.circular(6)),
                       border: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.white,
+                            color: whiteColor,
                           ),
                           borderRadius: BorderRadius.circular(6))),
                 ),
@@ -150,14 +150,14 @@ class ShippingDetails extends StatelessWidget {
                       filled: true,
                       fillColor: whiteColor,
                       hintText: "Postal Code",
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(color: blackColor),
                       focusedBorder: OutlineInputBorder(
                           borderSide:
-                              const BorderSide(color: Colors.black, width: 2),
+                              const BorderSide(color: blackColor, width: 2),
                           borderRadius: BorderRadius.circular(6)),
                       border: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.white,
+                            color: whiteColor,
                           ),
                           borderRadius: BorderRadius.circular(6))),
                 ),
@@ -173,14 +173,14 @@ class ShippingDetails extends StatelessWidget {
                       filled: true,
                       fillColor: whiteColor,
                       hintText: "Phone",
-                      hintStyle: const TextStyle(color: Colors.black),
+                      hintStyle: const TextStyle(color: blackColor),
                       focusedBorder: OutlineInputBorder(
                           borderSide:
-                              const BorderSide(color: Colors.black, width: 2),
+                              const BorderSide(color: blackColor, width: 2),
                           borderRadius: BorderRadius.circular(6)),
                       border: OutlineInputBorder(
                           borderSide: const BorderSide(
-                            color: Colors.white,
+                            color: whiteColor,
                           ),
                           borderRadius: BorderRadius.circular(6))),
                 ),

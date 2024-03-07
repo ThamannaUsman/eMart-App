@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:flutter/material.dart';
 
@@ -31,11 +32,11 @@ class TodayDeal extends StatelessWidget {
                   ),
                   const SizedBox(height: 10,),
                   Text("${totalName[index]}", style: const TextStyle(
-                    color: Colors.black87, fontWeight: FontWeight.bold,),
+                    color: black87Color, fontWeight: FontWeight.bold,),
                     textAlign: TextAlign.center,),
                   const SizedBox(height: 6,),
                   Text(' \₹' + "${totalPrice[index]}", style: TextStyle(
-                      color: Colors.teal.shade400,
+                      color: tealShade400,
                       fontWeight: FontWeight.bold),),
                 ],
               ),

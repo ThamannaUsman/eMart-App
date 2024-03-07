@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/const_final/firebase_const.dart';
 import 'package:ecommerce_app/controller/cart_controller.dart';
@@ -23,7 +24,7 @@ class CartScreen extends StatelessWidget {
               child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(Colors.teal.shade800),
+                        MaterialStateProperty.all(tealShade800),
                       shape: MaterialStateProperty.all(const RoundedRectangleBorder())
                   ),
                   onPressed: () {
@@ -37,12 +38,12 @@ class CartScreen extends StatelessWidget {
                   )),
             )),
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
+          backgroundColor:transparentColor,
           automaticallyImplyLeading: false,
           title: const Text(
             "Shopping cart",
             style:
-                TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
+                TextStyle(color: black87Color, fontWeight: FontWeight.bold),
           ),
         ),
         body: StreamBuilder(
@@ -77,14 +78,14 @@ class CartScreen extends StatelessWidget {
                           title: Text(
                             "${data[index]['title']}  (x${data[index]['qty']}) ",
                             style: const TextStyle(
-                                color: Colors.black87,
+                                color: black87Color,
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold),
                           ),
                           subtitle: Text(
                             '\₹'+"${data[index]['tprice']}",
                             style: TextStyle(
-                                color: Colors.teal.shade600,
+                                color: tealShade600,
                                 fontWeight: FontWeight.bold),
                           ),
                           trailing: IconButton(
@@ -93,7 +94,7 @@ class CartScreen extends StatelessWidget {
                               },
                               icon: const Icon(
                                 Icons.delete,
-                                color: Colors.red,
+                                color: redColor,
                               )),
                         );
                       },
@@ -108,13 +109,13 @@ class CartScreen extends StatelessWidget {
                             const Text(
                               "Total Price",
                               style: TextStyle(
-                                  color: Colors.black87,
+                                  color: black87Color,
                                   fontWeight: FontWeight.bold),
                             ),
                             Text(
                               '\₹'+"${cartController.totalP}",
                               style: TextStyle(
-                                  color: Colors.teal[600],
+                                  color: tealShade600,
                                   fontWeight: FontWeight.bold),
                             ),
                           ],

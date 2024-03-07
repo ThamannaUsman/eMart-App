@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/const_final/const.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/screen/category_screen/category_screen.dart';
 import 'package:ecommerce_app/screen/home_screen/brand_logo.dart';
 import 'package:ecommerce_app/screen/home_screen/top_sale.dart';
@@ -27,7 +27,7 @@ class HomeButton2 extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network("https://cdn2.iconfinder.com/data/icons/boxicons-regular-vol-1/24/bx-category-128.png",height: 40,),
+                Image.network("https://cdn3.iconfinder.com/data/icons/e-commerce-756/24/categories_ui_apps_menu_options_add_interface-128.png",height: 40,),
                 const SizedBox(height: 5,),
                 const Text("Top Categories",)
               ],
@@ -52,7 +52,7 @@ class HomeButton2 extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network("https://cdn2.iconfinder.com/data/icons/smart-home-176/24/light_bulb_light_bulb_idea_lightning_foco_lightbulb_ideas_technology-128.png",height: 40,),
+                Image.network("https://cdn0.iconfinder.com/data/icons/complete-version-1/1024/bulb4-128.png",height: 40,),
                 const SizedBox(height: 5,),
                 const Text("Brand",)
               ],
@@ -77,7 +77,7 @@ class HomeButton2 extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.network("https://cdn4.iconfinder.com/data/icons/materia-flat-holiday/24/029_019_crown_corona_cesar_king_leader_jewel_diamond-128.png",height: 40,),
+                Image.network("https://cdn4.iconfinder.com/data/icons/eon-ecommerce-i-1/32/top_king_crown_seller-128.png",height: 40,),
                 const SizedBox(height: 5,),
                 const Text("Top Sale",)
               ],

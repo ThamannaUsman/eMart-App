@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/const_final/const.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:flutter/material.dart';
 
 class DetailsButton extends StatelessWidget {
@@ -23,13 +23,13 @@ class DetailsButton extends StatelessWidget {
             Text(
               count!,
               style: const TextStyle(
-                  color: Colors.black87, fontWeight: FontWeight.bold,fontSize: 16),
+                  color:black87Color, fontWeight: FontWeight.bold,fontSize: 16),
             ),
             const SizedBox(height: 5,),
             Text(
               title!,
               style: const TextStyle(
-                color: Colors.black87,),
+                color: black87Color,),
               textAlign: TextAlign.center,
             ),
           ],

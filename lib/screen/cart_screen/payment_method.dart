@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/controller/cart_controller.dart';
 import 'package:ecommerce_app/screen/bottom_navigation_screen/bottom_navigation.dart';
@@ -22,7 +23,7 @@ class PaymentMethods extends StatelessWidget {
             child: ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all(Colors.teal.shade800),
+                      MaterialStateProperty.all(tealShade800),
                     shape: MaterialStateProperty.all(const RoundedRectangleBorder())
                 ),
                 onPressed: () async{
@@ -33,7 +34,7 @@ class PaymentMethods extends StatelessWidget {
                   );
                  await cartController.clearCart();
                   Utils().showSnackBar(context: context, content: "Order placed Successfully");
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigation(),));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const BottomNavigation(),));
                 },
                 child: const Text(
                   "Place my order",
@@ -43,10 +44,10 @@ class PaymentMethods extends StatelessWidget {
                 )),
           )),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: transparentColor,
         title: const Text(
           "Choose Payment Method",
-          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
+          style: TextStyle(color: black87Color, fontWeight: FontWeight.bold),
         ),
       ),
       body: Padding(
@@ -63,7 +64,7 @@ class PaymentMethods extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   border: Border.all(
 
-                      color:cartController.paymentIndex == index ? Colors.teal.shade400 : Colors.transparent,
+                      color:cartController.paymentIndex == index ? tealShade400 : transparentColor,
                       width: 4)),
               margin: const EdgeInsets.only(bottom: 8),
               child: Stack(
@@ -74,7 +75,7 @@ class PaymentMethods extends StatelessWidget {
                     width: double.infinity,
                     height: 120,
                     colorBlendMode: cartController.paymentIndex == index ? BlendMode.darken : BlendMode.color,
-                    color: cartController.paymentIndex == index ? Colors.black.withOpacity(0.4) : Colors.transparent,
+                    color: cartController.paymentIndex == index ? Colors.black.withOpacity(0.4) : transparentColor,
                     fit: BoxFit.cover,
                   ),
                 cartController.paymentIndex == index ?  Transform.scale(
@@ -82,12 +83,12 @@ class PaymentMethods extends StatelessWidget {
                     child: Checkbox(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(50)),
-                      activeColor: Colors.green,
+                      activeColor: greenColor,
                       value: true,
                       onChanged: (value) {},
                     ),
                   ): Container(),
-                  Positioned(bottom: 10,right:10,child: Text(paymentMethodName[index], style: TextStyle(color: Colors.white,fontSize: 16, fontWeight: FontWeight.bold),))
+                  Positioned(bottom: 10,right:10,child: Text(paymentMethodName[index], style: const TextStyle(color: whiteColor,fontSize: 16, fontWeight: FontWeight.bold),))
                 ],
               ),
             ),

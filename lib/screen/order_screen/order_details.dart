@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/const_final/const.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/screen/order_screen/order_place_details.dart';
 import 'package:ecommerce_app/screen/order_screen/order_status.dart';
 import 'package:flutter/material.dart';
@@ -13,11 +13,11 @@ class OrdersDetails extends StatelessWidget {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: transparentColor,
         title: const Text(
           "Order Details",
           style:
-          TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
+          TextStyle(color: black87Color, fontWeight: FontWeight.bold),
         ),
       ),
       body: Padding(
@@ -26,16 +26,16 @@ class OrdersDetails extends StatelessWidget {
           physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
-              orderStatus(color: Colors.teal,icon: Icons.done,title: 'Order Placed',showDone: data['order_placed']),
-              orderStatus(color: Colors.blue,icon: Icons.thumb_up,title: 'Confirmed',showDone: data['order_confirmed']),
-              orderStatus(color: Colors.yellow,icon: Icons.car_crash,title: 'On Delivery',showDone: data['order_on_delivery']),
-              orderStatus(color: Colors.purple,icon: Icons.done_all_rounded,title: 'Delivered',showDone: data['order_delivered']),
+              orderStatus(color: tealColor,icon: Icons.done,title: 'Order Placed',showDone: data['order_placed']),
+              orderStatus(color: blueColor,icon: Icons.thumb_up,title: 'Confirmed',showDone: data['order_confirmed']),
+              orderStatus(color: yellowColor,icon: Icons.car_crash,title: 'On Delivery',showDone: data['order_on_delivery']),
+              orderStatus(color: purpleColor,icon: Icons.done_all_rounded,title: 'Delivered',showDone: data['order_delivered']),
               const Divider(),
               const SizedBox(height:10 ,),
            Container(
              decoration: BoxDecoration(
 
-               border: Border.all(color: Colors.black45)
+               border: Border.all(color: black45Color)
              ),
              child: Column(
                children: [
@@ -68,33 +68,33 @@ class OrdersDetails extends StatelessWidget {
                            const Text(
                              "Shipping Address",
                              style:
-                             TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
+                             TextStyle(color: black87Color, fontWeight: FontWeight.bold),
                            ),
                            Text(
                              "${data['order_by_name']}",
                              style:
-                             const TextStyle(color: Colors.black54),
+                             const TextStyle(color: black54Color),
                            ),
                            Text(
                              "${data['order_by_address']}",
                              style:
-                             const TextStyle(color: Colors.black54),
+                             const TextStyle(color: black54Color),
                            ), Text(
                              "${data['order_by_city']}",
                              style:
-                             const TextStyle(color: Colors.black54),
+                             const TextStyle(color:black54Color),
                            ), Text(
                              "${data['order_by_state']}",
                              style:
-                             const TextStyle(color: Colors.black54),
+                             const TextStyle(color:black54Color),
                            ), Text(
                              "${data['order_by_phone']}",
                              style:
-                             const TextStyle(color: Colors.black54),
+                             const TextStyle(color: black54Color),
                            ), Text(
                              "${data['order_by_postalcode']}",
                              style:
-                             const TextStyle(color: Colors.black54),
+                             const TextStyle(color:black54Color),
                            ),
 
                          ],
@@ -108,12 +108,12 @@ class OrdersDetails extends StatelessWidget {
                              const Text(
                                "Total Amount",
                                style:
-                               TextStyle(color: Colors.black87, fontWeight: FontWeight.w400),
+                               TextStyle(color: black87Color, fontWeight: FontWeight.w400),
                              ),
                              Text(
                                "${data['total_amount']}",
                                style:
-                               TextStyle(color: Colors.teal.shade600, fontWeight: FontWeight.bold),
+                               TextStyle(color: tealShade600, fontWeight: FontWeight.bold),
                              ),
                            ],
                          ),
@@ -130,13 +130,13 @@ class OrdersDetails extends StatelessWidget {
               const Text(
                 "Order Product",
                 style:
-                TextStyle(color: Colors.black87,fontSize: 16, fontWeight: FontWeight.bold),
+                TextStyle(color: black87Color,fontSize: 16, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 5,),
               Container(
                 decoration: BoxDecoration(
 
-                    border: Border.all(color: Colors.black45)
+                    border: Border.all(color: black45Color)
                 ),
                 margin: const EdgeInsets.only(bottom: 4),
                 child: ListView(

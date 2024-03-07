@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/screen/category_screen/item_details.dart';
 import 'package:ecommerce_app/services/firebase_services.dart';
@@ -15,8 +16,8 @@ class SearchScreen extends StatelessWidget {
     return Scaffold(
         backgroundColor: whiteColor,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          title: Text(title!, style: const TextStyle(color: Colors.grey),),
+          backgroundColor: transparentColor,
+          title: Text(title!, style: const TextStyle(color: greyColor),),
         ),
         body: FutureBuilder(
           future: FirebaseServices.searchProducts(title),
@@ -62,12 +63,12 @@ class SearchScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10,),
                         Text("${filtered[index]['p_name']}", style: const TextStyle(
-                          color: Colors.black87, fontWeight: FontWeight.bold,),
+                          color: black87Color, fontWeight: FontWeight.bold,),
                           textAlign: TextAlign.center,),
                         const SizedBox(height: 6,),
                         Text(
                           ' \₹' + "${filtered[index]['p_price']}", style: TextStyle(
-                            color: Colors.teal.shade400,
+                            color: tealShade400,
                             fontWeight: FontWeight.bold),),
                       ],
                     ),

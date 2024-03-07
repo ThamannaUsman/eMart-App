@@ -1,22 +1,21 @@
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:flutter/material.dart';
 
-class BrandAdWidget extends StatefulWidget {
-  const BrandAdWidget({super.key});
+class BrandAdWidget1 extends StatefulWidget {
+  const BrandAdWidget1({super.key});
 
   @override
-  State<BrandAdWidget> createState() => _BrandAdWidgetState();
+  State<BrandAdWidget1> createState() => _BrandAdWidget1State();
 }
 
-class _BrandAdWidgetState extends State<BrandAdWidget> {
+class _BrandAdWidget1State extends State<BrandAdWidget1> {
   int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return GestureDetector(
       onHorizontalDragEnd: (_) {
-        if (currentIndex == (brandslist.length - 1)) {
+        if (currentIndex == (brandList1.length - 1)) {
           currentIndex = -1;
         }
         setState(() {
@@ -26,7 +25,7 @@ class _BrandAdWidgetState extends State<BrandAdWidget> {
       child: Stack(
         children: [
           Image.network(
-            brandslist[currentIndex],
+            brandList1[currentIndex],
             width: double.infinity,
           ),
 

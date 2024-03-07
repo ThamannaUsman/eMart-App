@@ -13,7 +13,7 @@ class _BrandAdWidget2State extends State<BrandAdWidget2> {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
+
     return GestureDetector(
       onHorizontalDragEnd: (_) {
         if (currentIndex == (brandList2.length - 1)) {

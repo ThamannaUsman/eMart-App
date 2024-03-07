@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:flutter/material.dart';
 
 Widget orderPlaceDetails({title1, title2, d1, d2}) {
@@ -12,12 +13,12 @@ Widget orderPlaceDetails({title1, title2, d1, d2}) {
             Text(
               "$title1",
               style: const TextStyle(
-                  color: Colors.black87, fontWeight: FontWeight.bold),
+                  color: black87Color, fontWeight: FontWeight.bold),
             ),
             Text(
               "$d1",
               style: TextStyle(
-                  color: Colors.teal.shade600, fontWeight: FontWeight.bold),
+                  color: tealShade600, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -29,12 +30,12 @@ Widget orderPlaceDetails({title1, title2, d1, d2}) {
               Text(
                 "$title2",
                 style: const TextStyle(
-                    color: Colors.black87, fontWeight: FontWeight.bold),
+                    color: black87Color, fontWeight: FontWeight.bold),
               ),
               Text(
                 "$d2",
                 style: TextStyle(
-                    color: Colors.teal.shade600, fontWeight: FontWeight.bold),
+                    color: tealShade600, fontWeight: FontWeight.bold),
               ),
             ],
           ),

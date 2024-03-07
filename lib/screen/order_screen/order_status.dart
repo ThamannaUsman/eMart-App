@@ -1,4 +1,4 @@
-import 'package:ecommerce_app/const_final/const.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:flutter/material.dart';
 
 Widget orderStatus({icon,color,title,showDone}) {
@@ -20,9 +20,9 @@ Widget orderStatus({icon,color,title,showDone}) {
            Text(
             "$title",
             style: const TextStyle(
-                color: Colors.black87),
+                color:black87Color),
           ),
-          showDone ? Icon(Icons.done,color: Colors.teal.shade600,):Container()
+          showDone ? Icon(Icons.done,color: tealShade600):Container()
         ],
       ),
     ),

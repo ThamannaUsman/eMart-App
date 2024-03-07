@@ -1,10 +1,11 @@
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/screen/home_screen/flesh_deal.dart';
 import 'package:ecommerce_app/screen/home_screen/today_deals.dart';
 import 'package:flutter/material.dart';
 
-class HomeButton extends StatelessWidget {
-  const HomeButton({super.key});
+class HomeButton1 extends StatelessWidget {
+  const HomeButton1({super.key});
 
   @override
   Widget build(BuildContext context) {

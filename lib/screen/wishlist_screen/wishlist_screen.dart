@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/const_final/firebase_const.dart';
 import 'package:ecommerce_app/services/firebase_services.dart';
@@ -13,10 +14,10 @@ class WishListScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: transparentColor,
         title: const Text(
           "My Wishlist",
-          style: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold),
+          style: TextStyle(color: black87Color, fontWeight: FontWeight.bold),
         ),
       ),
       body: StreamBuilder(
@@ -30,7 +31,7 @@ class WishListScreen extends StatelessWidget {
             return const Center(
               child: Text(
                 "No wishlist yet!",
-                style: TextStyle(color: Colors.black87),
+                style: TextStyle(color: black87Color),
               ),
             );
           } else {
@@ -50,14 +51,14 @@ class WishListScreen extends StatelessWidget {
                         title: Text(
                           "${data[index]['p_name']}",
                           style: const TextStyle(
-                              color: Colors.black87,
+                              color: black87Color,
                               fontSize: 16,
                               fontWeight: FontWeight.bold),
                         ),
                         subtitle: Text(
                           "${data[index]['p_price']}",
                           style: TextStyle(
-                              color: Colors.teal.shade600,
+                              color: tealShade600,
                               fontWeight: FontWeight.bold),
                         ),
                         trailing: IconButton(
@@ -68,7 +69,7 @@ class WishListScreen extends StatelessWidget {
                             },
                             icon: const Icon(
                               Icons.favorite,
-                              color: Colors.red,
+                              color: redColor,
                             )),
                       );
                     },

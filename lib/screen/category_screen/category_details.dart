@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ecommerce_app/const_final/const.dart';
+import 'package:ecommerce_app/const_final/color.dart';
 import 'package:ecommerce_app/controller/product_controller.dart';
 import 'package:ecommerce_app/screen/category_screen/item_details.dart';
 
@@ -14,12 +14,11 @@ class CategoryDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final productController = Provider.of<ProductController>(context);
-    LoadingIndicator loading = LoadingIndicator();
     return SafeArea(
         child: Scaffold(
-            backgroundColor: Colors.teal.shade700,
+            backgroundColor: tealShade700,
             appBar: AppBar(
-              backgroundColor: Colors.teal.shade600,
+              backgroundColor: tealShade600,
               title: Text(title!),
             ),
             body: Column(
@@ -52,7 +51,7 @@ class CategoryDetails extends StatelessWidget {
                                       "${productController.subCat[index]}",
                                       style: const TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.black87),
+                                          color: black87Color),
                                     )),
                                   ),
                                 ),
@@ -67,7 +66,7 @@ class CategoryDetails extends StatelessWidget {
                       AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (!snapshot.hasData) {
                       return Center(
-                        child:Container(),
+                        child: Container(),
                       );
                     } else if (snapshot.data!.docs.isEmpty) {
                       return const Center(
@@ -94,14 +93,13 @@ class CategoryDetails extends StatelessWidget {
                             onTap: () {
                               productController.checkIfFav(data[index]);
                               Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => ItemDetails(
-                                    title: "${data[index]['p_name']}",
-                                    data: data[index],
-                                  ),
-                                ),
-                              );
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ItemDetails(
+                                      title: "${data[index]['p_name']}",
+                                      data: data[index],
+                                    ),
+                                  ));
                             },
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -124,7 +122,7 @@ class CategoryDetails extends StatelessWidget {
                                     Text(
                                       "${data[index]['p_name']}",
                                       style: const TextStyle(
-                                        color: Colors.black87,
+                                        color: black87Color,
                                         fontWeight: FontWeight.bold,
                                       ),
                                       textAlign: TextAlign.center,
@@ -135,7 +133,7 @@ class CategoryDetails extends StatelessWidget {
                                     Text(
                                       '\₹' + "${data[index]['p_price']}",
                                       style: TextStyle(
-                                          color: Colors.teal.shade400,
+                                          color: tealShade400,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ],

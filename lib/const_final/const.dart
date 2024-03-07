@@ -1,44 +1,25 @@
 import 'package:flutter/material.dart';
 
-final List<Color> backgroundGradient = [
-  Colors.teal.shade800,
-  Colors.green.shade800,
-];
-const whiteColor = Colors.white;
-
-final List<Color> background2Gradient = [
-  Colors.cyan.shade800,
-  Colors.green.shade800,
-]; //C
-
-Image googleLogo = Image.network(
-    "https://cdn1.iconfinder.com/data/icons/logos-brands-in-colors/544/Google__G__Logo-128.png");
-Image facebookLogo = Image.network(
-    "https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Facebook_colored_svg_copy-256.png");
-Image twitterLogo = Image.network(
-    "https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Twitter3_colored_svg-256.png");
-
-final brandslist = [
-  "https://imgs.search.brave.com/bjg7gykpPdjFGVXKGknTGjfA-5NvsXwCPKttyFv6XKw/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zc2xp/bWFnZXMuc2hvcHBl/cnNzdG9wLmNvbS9z/eXMtbWFzdGVyL3Jv/b3QvaGJjL2g3Yi8z/MDY0ODgyMTY0NTM0/Mi9TaG9wcGVycy1T/dG9wLVNlbGVjdHMt/V2ViLWthc2hpc2gt/Xy1oYXV0Y3Vycnlf/MTIwODIzLmpwZw",
-  "https://imgs.search.brave.com/CAmLawPwdmej02L0Z_dAQwVoDz70jelm9cxg85eD_V4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zc2xp/bWFnZXMuc2hvcHBl/cnNzdG9wLmNvbS9z/eXMtbWFzdGVyL3Jv/b3QvaGY1L2hkMC8z/MDY0ODgyMjAzODU1/OC9TaG9wcGVycy1T/dG9wLVNlbGVjdHMt/V2ViLUluc2Vuc2Ut/Xy1BbHRsaWZlXzEy/MDgyMy5qcGc",
-  "https://imgs.search.brave.com/DcDWbT0j-8LllSK3rzTTAYKAP8EiOB6A0GXyf_Jp5sY/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zc2xp/bWFnZXMuc2hvcHBl/cnNzdG9wLmNvbS9z/eXMtbWFzdGVyL3Jv/b3QvaDhhL2g4NS8z/MDY0ODgyMTkwNzQ4/Ni9TaG9wcGVycy1T/dG9wLVNlbGVjdHMt/V2ViLWxpZmUtXy1p/bmZ1c2VfMTIwODIz/LmpwZw",
-  "https://imgs.search.brave.com/pxGURPZM0SrTzsj5e5M2JrKIUj3QTgFlrhrv5L2by54/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zc2xp/bWFnZXMuc2hvcHBl/cnNzdG9wLmNvbS9z/eXMtbWFzdGVyL3Jv/b3QvaGM0L2hkNi8y/OTI1OTE3ODYwNjYy/Mi9GcmFncmFuY2Ut/RmluZGVyLVdlYl91/anRyZnNnaHJ0Y3Zj/YnYuanBn",
+final brandList1 = [
+  "https://img1.junaroad.com/assets/images/mobileNotif/1490703811159.jpg",
+  "https://kleren.pk/wp-content/uploads/2023/11/tasawar-1.jpg.webp",
+  "https://miro.medium.com/v2/resize:fit:1400/1*dOhXps9FRARsoXJwSQkcWg.png",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-EVkK5vtrsZGTvAzgQA-NpQD8HYQhxRpIFHhGDUjpcISRADtd-F8DrCTuuLWASTFXDEU&usqp=CAU"
 ];
 final brandList2 = [
-  "https://imgs.search.brave.com/k2bqwPyp2RTismaIEKuiDP8HCJtLxUJOll59E6O-pqU/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9jLm5k/dHZpbWcuY29tLzIw/MjMtMTEvbXVkdmJk/bG9fcmlnaHRfNjI1/eDMwMF8yNF9Ob3Zl/bWJlcl8yMy5wbmc",
-  "https://imgs.search.brave.com/Z_4MYpIgxM-pSGF6qr-K6HRaWB0CHqmqxDJzwpEyfzE/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9oaXBz/LmhlYXJzdGFwcHMu/Y29tL2htZy1wcm9k/L2ltYWdlcy9zaG9w/cGluZy1iYWdzLTE0/NzM4ODgxMzkuanBn/P2Nyb3A9MC44OTF4/dzoxLjAweGg7MC4w/NTU0eHcsMCZyZXNp/emU9MTIwMDoq",
-  "https://imgs.search.brave.com/B44SINETHWAvITlSP_7uZIHwQi-ysIdUTFnWMUYUxvI/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9zdHls/ZWNhc3Rlci5jb20v/d3AtY29udGVudC91/cGxvYWRzLzIwMjMv/MDQvYW1hem9uLXNw/cmluZy1tYXhpLWRy/ZXNzLmpwZz93PTk2/MCZoPTU0MCZjcm9w/PTE",
-  "https://imgs.search.brave.com/d-bwIbIXYt4IdstFDHO0QyGOzPTye21-zwOcwFhhrCY/rs:fit:500:0:0/g:ce/aHR0cHM6Ly93d3cu/Y2hpY21vZXkuY29t/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDIw/LzA5L01ha2V1cC1T/YWxlcy1EZWFscy1U/aGlzLVdlZWstNzY1/eDQ1MC5qcGc"
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Bbn_o2whDrXDWrsbmFoh-dTt_Z0C5Rh8XV91JXtgkMMUf8phiPF9TlhrTfx-NUY3QXk&usqp=CAU",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsl6d8D3DzIK034fZJ6VHuWUAp8jphVxaGUvne9Ox1HvQuYFCzbnSlKNG2XuuU5m7oTOo&usqp=CAU",
+  "https://nestasia.in/cdn/shop/files/dinnerset_2_84c4e8ab-70c6-4ec2-a1d6-e421a5daccf5.jpg?v=1695971471",
+  "https://cdn.britannica.com/35/222035-050-C68AD682/makeup-cosmetics.jpg?w=840&h=460&c=crop",
 ];
-
-
 
 final brandList3 = [
-  "https://imgs.search.brave.com/tR083SmOKcXDHCaTJhDK16UC40Fr36qdKOqqpavmEBA/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTM0/MTI3MzkyNi9waG90/by9nby1zaG9wcGlu/Zy1zdHlsaXNoLXdv/bWFuLWhvdC1zYWxl/LWhvbGlkYXkuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWRk/LXZhM3d5QTBxamh4/ZEtWTVBKc0hicE5u/enB4Z2M3N3lZcldi/M1MtWjQ9",
-  "https://imgs.search.brave.com/QIu8PO5_QV-aviwMQ95OmITAz2AOQHIcoi2hAA9PkzY/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLmV0/c3lzdGF0aWMuY29t/LzMyNDc3MzA2L2Mv/MjAwMC8xNTg5LzAv/Mjk5L2lsL2Y4YTBl/Mi81NDE0MDA1OTgw/L2lsXzM0MHgyNzAu/NTQxNDAwNTk4MF9v/aDE4LmpwZw",
-  "https://imgs.search.brave.com/tSWTGsEbWgPqBeRnCDWjnN2zjM2oX0VGB39B6VGr-jQ/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtYWthLmphcmVk/LmNvbS9qYXJlZC9l/ZHVjYXRpb24vb25s/aW5lX2VuZ2FnZW1l/bnRfc2hvcHBpbmcv/aGFsby5qcGc",
-  "https://imgs.search.brave.com/Q5b2b4fMU379Cq5KGxVMhJmC3_4mohis-P1Wx3H5Hk4/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzA4LzFi/L2EzLzA4MWJhM2Q5/YWFjZTgwZGFjMjU5/ZWE2NDgyOGU5MjIy/LmpwZw",
+  "https://chikari.in/cdn/shop/files/Mobile-Banner-04.jpg?v=1689682884",
+  "https://cdn.create.vista.com/downloads/7cb7fc6e-988e-4a96-b6de-a9f2628e6c61_1024.jpeg",
+  "https://5.imimg.com/data5/SELLER/Default/2023/4/298073186/AU/PS/KO/91119383/theodore-premium-couple-watch-with-life-long-polish.jpg",
+  "https://baybee.co.in/cdn/shop/files/81IZENEgTIL._SL1500_1400x.jpg?v=1685544218",
 ];
+
 
 final product2 = [
   "https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/21209326/2023/1/11/ef0dbde1-af80-4465-8b7b-6025cdb867c41673437032164-kasee-Embellished-Beads-and-Stones-Saree-8081673437031391-1.jpg",
@@ -62,7 +43,6 @@ final productName2 = [
   "Cellphone & Tab",
   "Furniture",
 ];
-
 
 final profileButtonList = [
   "My Orders",
@@ -104,7 +84,7 @@ const popMenuIcon = [Icons.featured_play_list, Icons.edit, Icons.delete];
 const totalImage = [
   "https://assets.ajio.com/medias/sys_master/root/20231011/gr2p/6526a4cdafa4cf41f53b940b/aask_red_women_fit_%26_flare_dress_with_puff_sleeves.jpg",
   "https://www.soosi.co.in/cdn/shop/products/WhatsAppImage2023-03-25at1.32.38AM_1200x1200.jpg?v=1679739030",
-  "https://dmgml9qd9iax4.cloudfront.net/media/catalog/product/cache/a18019ae8a78fbef3e14b2651624404f/d/u/dusty-golden-embellished-chiffon-saree-prf192102.jpg",
+  "https://ik.imagekit.io/bhsa3gea8yj/products/tr:w-350/2023/Nov/Satin-Sarees-With-Embroidery-In-Red-Colour-SR00491382-A.jpg",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSLntkMvMdlccYrnqwbyZmoi34xN3BrfMfTw&usqp=CAU",
   "https://ik.imagekit.io/wb2spwtue/kreeva/tr:h-430,w-315,q-80,cm-pad_resize/media/catalog/product/0/0/002_4.jpg",
   "https://images-static.nykaa.com/media/catalog/product/e/4/e40d7eansn50_nyr2_48.jpeg?tr=w-500,pr-true",
@@ -118,7 +98,7 @@ const totalImage = [
 const totalName = [
   "Women's Dresses",
   "Gold Plated Watch",
-  "Clearance Sale on Sarees",
+  "Bridal Sarees",
   "Peach Color Lip Balm",
   "Indian Gown dress ",
   "Gold Plated Necklace",
@@ -151,7 +131,7 @@ const fleshImage = [
   "https://image.made-in-china.com/2f0j00LVeoTZUyhrcI/White-Fashion-Slippers-Comfortable-Casual-Flats-Men-and-Women-Shoes-Slippers.webp",
   "https://i.pinimg.com/736x/62/b4/b7/62b4b79ceb80fd4dc0a905e8ee339795.jpg",
   "https://img.etimg.com/thumb/width-640,height-480,imgsize-35708,resizemode-75,msid-98897778/top-trending-products/mobile-phones/6-latest-mobile-phones-with-12gb-ram-in-india-in-2023-starting-at-rs-29999/6-latest-mobile-phones-with-12gb-ram-in-india.jpg",
-  "https://m.media-amazon.com/images/W/MEDIAX_792452-T2/images/I/61uOK5owU0L.jpg",
+  "https://ustraa.cdn.imgeng.in/media/catalog/product/gallery/resized/408/u/s/ustraa-insignia-perfume-for-men.jpg",
   "https://marscosmetics.in/cdn/shop/products/EL03-4W_grande.jpg?v=1647930734",
   "https://rukminim1.flixcart.com/image/850/1000/xif0q/ring/d/h/w/adjustable-1-mkr188-ring-myki-original-imagphkncyefvfyk.jpeg?q=90",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-n86zvhIFZqhe8nV_bUW0BmUvg0LZF7PJBA&usqp=CAU",
