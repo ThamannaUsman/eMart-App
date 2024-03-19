@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/const_final/firebase_const.dart';
-import 'package:ecommerce_app/controller/home_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class CartController extends ChangeNotifier {
   double _totalP = 0;

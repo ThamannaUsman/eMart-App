@@ -1,18 +1,14 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ecommerce_app/const_final/const.dart';
 import 'package:ecommerce_app/const_final/firebase_const.dart';
-import 'package:ecommerce_app/controller/home_controller.dart';
 import 'package:ecommerce_app/model/category_model.dart';
 import 'package:ecommerce_app/utils/utils.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart';
-import 'package:provider/provider.dart';
+
 
 class SellController extends ChangeNotifier {
   final productController = TextEditingController();
@@ -124,16 +120,6 @@ class SellController extends ChangeNotifier {
   }
 
 
-  // Future<String> uploadImageToDatabase(
-  //     {required Uint8List image}) async {
-  //   Reference storageRef =
-  //   FirebaseStorage.instance.ref().child("products");
-  //   UploadTask uploadTask = storageRef.putData(image);
-  //   TaskSnapshot task = await uploadTask;
-  //   notifyListeners();
-  //   return task.ref.getDownloadURL();
-  //
-  // }
   Future<String> uploadImageToDatabase(
       {required Uint8List image, required String uid}) async {
     Reference storageRef =
